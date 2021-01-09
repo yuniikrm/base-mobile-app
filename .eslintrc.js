@@ -5,21 +5,36 @@ module.exports = {
   parser: 'babel-eslint',
   settings: {
     'import/resolver': {
-      node: {
-        paths: ['src'],
-        alias: {
-          '@assets': './src/assets',
-          '@components': './src/components',
-          '@navigations': './src/navigations',
-          '@services': './src/services',
-          '@screens': './src/screens',
-          '@styles': './src/styles',
-          '@utils': './src/styles',
-          '@store': './src/store',
-          '@i18n': './src/i18n',
-        },
-      },
-    },
+      alias: {
+        map: [
+          ['@assets', './src/assets'],
+          ['@components', './src/components'],
+          ['@navigations', './src/navigations'],
+          ['@services', './src/services'],
+          ['@screens', './src/screens'],
+          ['@styles', './src/styles'],
+          ['@utils', './src/styles'],
+          ['@store', './src/store'],
+          ['@i18n', './src/i18n'],
+        ],
+        extensions: ['.ts', '.js', '.jsx', '.json']
+      }
+      // node: {
+      //   paths: ['src'],
+      //   extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      //   alias: {
+      //     '@assets': './src/assets',
+      //     '@components': './src/components',
+      //     '@navigations': './src/navigations',
+      //     '@services': './src/services',
+      //     '@screens': './src/screens',
+      //     '@styles': './src/styles',
+      //     '@utils': './src/styles',
+      //     '@store': './src/store',
+      //     '@i18n': './src/i18n'
+      //   }
+      // }
+    }
   },
   rules: {
     semi: [2, 'never'],
@@ -33,4 +48,4 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off',
     'import/no-extraneous-dependencies': ['error', { devDependencies: true, optionalDependencies: false, peerDependencies: false }]
   }
-};
+}

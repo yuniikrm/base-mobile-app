@@ -6,34 +6,32 @@ import { styles, commonStyles } from './styles'
 
 const Button = ({
   title, onPress, disabled, style, secondary
-}) => {
-  return (
-    <>
-      {secondary ? (
-        <View style={style}>
-            <ButtonNative
-              title={title}
-              disabled={disabled}
-              onPress={onPress}
-              buttonStyle={[styles.buttonSecondaryStyle]}
-              titleStyle={styles.titleStyle}
-            />
-            <TouchableWithoutFeedback onPress={onPress}>
-              <Text style={styles.titleSecondaryStyle}>{title}</Text>
-            </TouchableWithoutFeedback>
-        </View>
-      ) : (
+}) => (
+  <>
+    {secondary ? (
+      <View style={style}>
         <ButtonNative
           title={title}
           disabled={disabled}
           onPress={onPress}
-          buttonStyle={[styles.buttonStyle, style]}
+          buttonStyle={[styles.buttonSecondaryStyle]}
           titleStyle={styles.titleStyle}
         />
-      )}
-    </>
-  )
-}
+        <TouchableWithoutFeedback onPress={onPress}>
+          <Text style={styles.titleSecondaryStyle}>{title}</Text>
+        </TouchableWithoutFeedback>
+      </View>
+    ) : (
+      <ButtonNative
+        title={title}
+        disabled={disabled}
+        onPress={onPress}
+        buttonStyle={[styles.buttonStyle, style]}
+        titleStyle={styles.titleStyle}
+      />
+    )}
+  </>
+)
 Button.propTypes = {
   title: PropTypes.string,
   onPress: PropTypes.func.isRequired,

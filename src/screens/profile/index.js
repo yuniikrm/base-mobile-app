@@ -1,19 +1,15 @@
-
-import React from 'react';
-import { View, ScrollView } from 'react-native';
+import React from 'react'
+import { object } from 'prop-types'
 import { useForm } from 'react-hook-form'
-import { Input, FormWrapper } from '@components/shared';
-import { t } from '@i18n';
+import { Input, FormWrapper } from '@components/shared'
+import { t } from '@i18n'
 
-const Profile = ({ navigation  }) => {
-  const { handleSubmit, errors, control } = useForm()
-  const doSubmit = () => {
-      console.log('do submit')
-  }
+const Profile = ({ navigation }) => {
+  const { errors, control } = useForm()
 
-    return (
-            <FormWrapper style={{ padding: 20 }}>
-                <React.Fragment>
+  return (
+    <FormWrapper style={{ padding: 20 }}>
+      <>
         <Input
           name="username"
           rules={{ required: true }}
@@ -30,67 +26,69 @@ const Profile = ({ navigation  }) => {
           error={errors.password}
         />
 
+        <Input
+          name="name"
+          rules={{ required: true }}
+          control={control}
+          placeholder="name"
+          error={errors.name}
+        />
 
-<Input
-            name="name"
-            rules={{ required: true }}
-            control={control}
-            placeholder={"name"}
-            error={errors.name}
-            />
-            
-            <Input
-            name="name"
-            rules={{ required: true }}
-            control={control}
-            placeholder={"name"}
-            error={errors.name}
-            />
-            
-            <Input
-            name="name"
-            rules={{ required: true }}
-            control={control}
-            placeholder={"name"}
-            error={errors.name}
-            />
-            
-            <Input
-            name="name"
-            rules={{ required: true }}
-            control={control}
-            placeholder={"name"}
-            error={errors.name}
-            />
-            
-            <Input
-            name="name"
-            rules={{ required: true }}
-            control={control}
-            placeholder={"name"}
-            error={errors.name}
-            />
-            
-            <Input
-            name="name"
-            rules={{ required: true }}
-            control={control}
-            placeholder={"name"}
-            error={errors.name}
-            />
+        <Input
+          name="name"
+          rules={{ required: true }}
+          control={control}
+          placeholder="name"
+          error={errors.name}
+        />
 
-        
-            <Input
-            name="name"
-            rules={{ required: true }}
-            control={control}
-            placeholder={"name"}
-            error={errors.name}
-            />
-        </React.Fragment>
-        </FormWrapper>    
+        <Input
+          name="name"
+          rules={{ required: true }}
+          control={control}
+          placeholder="name"
+          error={errors.name}
+        />
 
-    )
+        <Input
+          name="name"
+          rules={{ required: true }}
+          control={control}
+          placeholder="name"
+          error={errors.name}
+        />
+
+        <Input
+          name="name"
+          rules={{ required: true }}
+          control={control}
+          placeholder="name"
+          error={errors.name}
+        />
+
+        <Input
+          name="name"
+          rules={{ required: true }}
+          control={control}
+          placeholder="name"
+          error={errors.name}
+        />
+
+        <Input
+          name="name"
+          rules={{ required: true }}
+          control={control}
+          placeholder="name"
+          error={errors.name}
+        />
+      </>
+    </FormWrapper>
+
+  )
+}
+
+Profile.propTypes = {
+  navigation: object.isRequired
 }
 
 export default Profile

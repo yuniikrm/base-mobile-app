@@ -5,8 +5,8 @@ import Home from '@screens/home'
 import Profile from '@screens/profile'
 import { userStore } from '@store'
 
-const Navigations = (props) => {
-  const token = userStore(state => state.data.token)
+const Navigations = () => {
+  const token = userStore((state) => state.data.token)
   const Stack = createStackNavigator()
   return (
     <Stack.Navigator>
@@ -22,12 +22,12 @@ const Navigations = (props) => {
         name="Home"
         component={Home}
       />
-       <Stack.Screen
+      <Stack.Screen
         name="Profile"
         component={Profile}
       />
     </Stack.Navigator>
   )
-  }
-  
-  export default Navigations
+}
+
+export default Navigations
