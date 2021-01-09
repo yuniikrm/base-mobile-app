@@ -1,0 +1,12 @@
+{
+    "login": {
+        "username": "Nama Pengguna",
+        "password": "Kata Sandi"
+    },
+    "home": {
+        "welcome": "Selamat Datang"
+    },
+    "button": {
+        "login": "Masuk"
+    }
+}
