@@ -5,17 +5,18 @@
  * @format
  * @flow strict-local
  */
-
-import React, { useEffect } from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import { Provider } from 'jotai'
+import React, { useEffect } from 'react'
+import { NavigationContainer } from '@react-navigation/native'
 import SplashScreen from 'react-native-splash-screen'
 import Navigations from '@navigations'
 import { userStore } from '@store'
-import { changeLanguage } from '@i18n';
-import { View } from 'react-native';
+import ErrorBoundary from 'react-native-error-boundary'
+import { FallbackErrorBoundary } from '@components/shared'
+import { changeLanguage } from '@i18n'
 
 const App = () => {
-  const language = userStore(state => state.language)
+  const language = userStore((state) => state.language)
   changeLanguage(language)
 
   useEffect(() => {
@@ -25,10 +26,14 @@ const App = () => {
   }, [])
 
   return (
-      <NavigationContainer>
-          <Navigations />   
-      </NavigationContainer>
-  );
-};
+    <Provider>
+      <ErrorBoundary FallbackComponent={FallbackErrorBoundary}>
+        <NavigationContainer>
+          <Navigations />
+        </NavigationContainer>
+      </ErrorBoundary>
+    </Provider>
+  )
+}
 
-export default App;
+export default App

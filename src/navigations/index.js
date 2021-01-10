@@ -3,10 +3,12 @@ import { createStackNavigator } from '@react-navigation/stack'
 import Login from '@screens/login'
 import Home from '@screens/home'
 import Profile from '@screens/profile'
-import { userStore } from '@store'
+import { commonStore } from '@store'
 
 const Navigations = () => {
-  const token = userStore((state) => state.data.token)
+  const store = commonStore
+  console.log('==============================', store.getState())
+  const { token } = store.getState()
   const Stack = createStackNavigator()
   return (
     <Stack.Navigator>

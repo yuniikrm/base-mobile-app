@@ -13,27 +13,14 @@ module.exports = {
           ['@services', './src/services'],
           ['@screens', './src/screens'],
           ['@styles', './src/styles'],
-          ['@utils', './src/styles'],
+          ['@utils', './src/utils'],
           ['@store', './src/store'],
           ['@i18n', './src/i18n'],
+          ['@config', './src/config'],
+          ['@api', './src/api']
         ],
         extensions: ['.ts', '.js', '.jsx', '.json']
       }
-      // node: {
-      //   paths: ['src'],
-      //   extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      //   alias: {
-      //     '@assets': './src/assets',
-      //     '@components': './src/components',
-      //     '@navigations': './src/navigations',
-      //     '@services': './src/services',
-      //     '@screens': './src/screens',
-      //     '@styles': './src/styles',
-      //     '@utils': './src/styles',
-      //     '@store': './src/store',
-      //     '@i18n': './src/i18n'
-      //   }
-      // }
     }
   },
   rules: {

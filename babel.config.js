@@ -16,7 +16,9 @@ module.exports = {
           '@styles': './src/styles',
           '@utils': './src/utils',
           '@store': './src/store',
-          '@i18n': './src/i18n'
+          '@i18n': './src/i18n',
+          '@config': './src/config',
+          '@api': './src/api'
         }
       }
     ]

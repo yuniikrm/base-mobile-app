@@ -4,7 +4,8 @@ import { useForm } from 'react-hook-form'
 import { object } from 'prop-types'
 import { Button, Input } from '@components/shared'
 import shallow from 'zustand/shallow'
-import { userStore } from '@store'
+import { userStore, commonStore } from '@store'
+import { login } from '@api/auth'
 import { t, changeLanguage } from '@i18n'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
@@ -12,6 +13,7 @@ const Login = ({ navigation }) => {
   const [
     setData, language, setLanguage
   ] = userStore((state) => [state.setData, state.language, state.setLanguage], shallow)
+  const { setState } = commonStore
   const { handleSubmit, errors, control } = useForm()
 
   const doChangeLanguage = (param) => {
@@ -20,14 +22,18 @@ const Login = ({ navigation }) => {
   }
 
   const doLogin = (val) => {
-    if (val.username === 'yunilucu' && val.password === '111') {
+    const req = {
+      email: val.username,
+      password: val.password
+    }
+    login(req).then((response) => {
       setData({
         nama: val.username,
-        token: '123563737373',
         email: 'email@yopmail.com'
       })
+      setState({ token: response.data.token })
       navigation.navigate('Home')
-    }
+    }).catch((e) => console.log('error', e))
   }
 
   return (
@@ -43,6 +49,7 @@ const Login = ({ navigation }) => {
         control={control}
         placeholder={t('login.username')}
         error={errors.username}
+        defaultValue="eve.holt@reqres.in"
       />
       <Input
         name="password"
@@ -51,6 +58,7 @@ const Login = ({ navigation }) => {
         control={control}
         placeholder={t('login.password')}
         error={errors.password}
+        defaultValue="cityslicka"
       />
       <Button title={t('button.login')} onPress={handleSubmit(doLogin)} />
     </View>

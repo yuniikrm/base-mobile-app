@@ -6,8 +6,8 @@ const userStore = create(persist(
   (set) => ({
     data: {},
     language: 'en',
-    setData: (param) => set((state) => ({ data: param })),
-    setLanguage: (param) => set((state) => ({ language: param }))
+    setData: (param) => set(() => ({ data: param })),
+    setLanguage: (param) => set(() => ({ language: param }))
   }),
   {
     name: 'user-data',
