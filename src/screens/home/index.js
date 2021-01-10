@@ -4,6 +4,8 @@ import { Button } from '@components/shared'
 import { userStore } from '@store'
 import { object } from 'prop-types'
 import { t } from '@i18n'
+import { formatRelative, subDays } from 'date-fns'
+import { id } from 'date-fns/locale'
 import { getDetailUser } from '@api/auth'
 import { atom, useAtom } from 'jotai'
 
@@ -31,6 +33,11 @@ const Home = ({ navigation }) => {
   return (
     <View>
       <Text>
+        Last online :
+        {' '}
+        {formatRelative(subDays(new Date(), 3), new Date(), { locale: id })}
+      </Text>
+      <Text>
         {t('home.welcome')}
         {' '}
         {dataUser}
@@ -42,6 +49,12 @@ const Home = ({ navigation }) => {
         title="go to profile"
         onPress={() => {
           navigation.navigate('Profile')
+        }}
+      />
+
+      <Button
+        title="test error"
+        onPress={() => {
           throw new Error('testing ErrorBoundary')
         }}
       />
