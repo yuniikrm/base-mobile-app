@@ -11,11 +11,16 @@ import { NavigationContainer } from '@react-navigation/native'
 import SplashScreen from 'react-native-splash-screen'
 import Navigations from '@navigations'
 import { userStore } from '@store'
+import * as Sentry from '@sentry/react-native'
 import ErrorBoundary from 'react-native-error-boundary'
 import { FallbackErrorBoundary } from '@components/shared'
 import { changeLanguage } from '@i18n'
+import { SENTRY_DSN } from '@config'
 
 const App = () => {
+  Sentry.init({
+    dsn: SENTRY_DSN
+  })
   const language = userStore((state) => state.language)
   changeLanguage(language)
 
