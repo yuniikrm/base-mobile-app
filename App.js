@@ -10,7 +10,8 @@ import React, { useEffect } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import SplashScreen from 'react-native-splash-screen'
 import Navigations from '@navigations'
-import { userStore } from '@store'
+import { userStore, commonStore } from '@store'
+import shallow from 'zustand/shallow'
 import * as Sentry from '@sentry/react-native'
 import ErrorBoundary from 'react-native-error-boundary'
 import { FallbackErrorBoundary } from '@components/shared'
@@ -21,8 +22,13 @@ const App = () => {
   Sentry.init({
     dsn: SENTRY_DSN
   })
-  const language = userStore((state) => state.language)
+  const [data, language] = userStore((state) => [state.data, state.language], shallow)
+  const { setState } = commonStore
+
   changeLanguage(language)
+  if (data.token) {
+    setState({ token: data.token })
+  }
 
   useEffect(() => {
     setTimeout(() => {

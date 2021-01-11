@@ -29,6 +29,7 @@ const Login = ({ navigation }) => {
     login(req).then((response) => {
       setData({
         nama: val.username,
+        token: response.data.token,
         email: 'email@yopmail.com'
       })
       setState({ token: response.data.token })
