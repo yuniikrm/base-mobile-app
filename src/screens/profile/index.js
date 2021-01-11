@@ -8,7 +8,7 @@ const Profile = ({ navigation }) => {
   const { errors, control } = useForm()
 
   return (
-    <FormWrapper style={{ padding: 20 }}>
+    <FormWrapper style={{ padding: 15 }}>
       <>
         <Input
           name="username"

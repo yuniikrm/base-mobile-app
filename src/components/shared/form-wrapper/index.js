@@ -20,7 +20,7 @@ const FormWrapper = ({
   return (
     <ScrollView>
       <View
-        style={{ height: Dimensions.get('window').height, paddingBottom: 160, ...style }}
+        style={{ height: Dimensions.get('window').height, ...style }}
       >
         <KeyboardAvoidingView
           style={{ flex: 1 }}

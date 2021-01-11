@@ -7,7 +7,6 @@ import { commonStore } from '@store'
 
 const Navigations = () => {
   const store = commonStore
-  console.log('==============================', store.getState())
   const { token } = store.getState()
   const Stack = createStackNavigator()
   return (
