@@ -1,9 +1,9 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import Login from '@screens/login'
-import Home from '@screens/home'
-import Profile from '@screens/profile'
-import { commonStore } from '@store'
+import Login from '../screens/login'
+import Home from '../screens/home'
+import Profile from '../screens/profile'
+import { commonStore } from '../store'
 
 const Navigations = () => {
   const store = commonStore

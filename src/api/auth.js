@@ -1,4 +1,4 @@
-import { postApi, getApi } from '@api/_base'
+import { postApi, getApi } from './_base'
 
 export function login(req) {
   return postApi('/login', req)

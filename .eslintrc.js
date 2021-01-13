@@ -3,26 +3,6 @@ module.exports = {
   extends: ['plugin:react/recommended', 'airbnb'],
   plugins: ['react'],
   parser: 'babel-eslint',
-  settings: {
-    'import/resolver': {
-      alias: {
-        map: [
-          ['@assets', './src/assets'],
-          ['@components', './src/components'],
-          ['@navigations', './src/navigations'],
-          ['@services', './src/services'],
-          ['@screens', './src/screens'],
-          ['@styles', './src/styles'],
-          ['@utils', './src/utils'],
-          ['@store', './src/store'],
-          ['@i18n', './src/i18n'],
-          ['@config', './src/config'],
-          ['@api', './src/api']
-        ],
-        extensions: ['.ts', '.js', '.jsx', '.json']
-      }
-    }
-  },
   rules: {
     semi: [2, 'never'],
     'comma-dangle': ['error', 'never'],

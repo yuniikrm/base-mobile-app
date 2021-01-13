@@ -1,6 +1,6 @@
-import axiosDefault from '@utils/axios'
-import { API_TIMEOUT } from '@config'
-import { commonStore } from '@store'
+import { API_TIMEOUT } from '../config'
+import { commonStore } from '../store'
+import axiosDefault from '../utils/axios'
 
 function getToken() {
   const useStore = commonStore

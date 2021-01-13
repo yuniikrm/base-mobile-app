@@ -1,10 +1,10 @@
 import React from 'react'
-import { object } from 'prop-types'
+// import { object } from 'prop-types'
 import { useForm } from 'react-hook-form'
-import { Input, FormWrapper } from '@components/shared'
-import { t } from '@i18n'
+import { Input, FormWrapper } from '../../components/forms'
+import { t } from '../../i18n'
 
-const Profile = ({ navigation }) => {
+const Profile = () => {
   const { errors, control } = useForm()
 
   return (
@@ -88,7 +88,7 @@ const Profile = ({ navigation }) => {
 }
 
 Profile.propTypes = {
-  navigation: object.isRequired
+  // navigation: object.isRequired
 }
 
 export default Profile

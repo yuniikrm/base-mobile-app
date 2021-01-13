@@ -5,7 +5,7 @@ import { Controller } from 'react-hook-form'
 import { Input as TextInput } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/dist/Feather'
 import { styles, commonStyles } from './styles'
-import TextLink from '../text-link'
+import TextLink from '../../commons/text-link'
 
 const RightIcon = ({ iconContent, onPress }) => {
   if (iconContent) {

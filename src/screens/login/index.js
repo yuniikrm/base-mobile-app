@@ -2,12 +2,13 @@ import React from 'react'
 import { View, Text } from 'react-native'
 import { useForm } from 'react-hook-form'
 import { object } from 'prop-types'
-import { Button, Input } from '@components/shared'
 import shallow from 'zustand/shallow'
-import { userStore, commonStore } from '@store'
-import { login } from '@api/auth'
-import { t, changeLanguage } from '@i18n'
 import { TouchableOpacity } from 'react-native-gesture-handler'
+import { Input } from '../../components/forms'
+import { Button } from '../../components/commons'
+import { userStore, commonStore } from '../../store'
+import { login } from '../../api/auth'
+import { t, changeLanguage } from '../../i18n'
 
 const Login = ({ navigation }) => {
   const [

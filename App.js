@@ -5,18 +5,17 @@
  * @format
  * @flow strict-local
  */
-import { Provider } from 'jotai'
 import React, { useEffect } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import SplashScreen from 'react-native-splash-screen'
-import Navigations from '@navigations'
-import { userStore, commonStore } from '@store'
 import shallow from 'zustand/shallow'
 import * as Sentry from '@sentry/react-native'
 import ErrorBoundary from 'react-native-error-boundary'
-import { FallbackErrorBoundary } from '@components/shared'
-import { changeLanguage } from '@i18n'
-import { SENTRY_DSN } from '@config'
+import { changeLanguage } from './src/i18n'
+import { SENTRY_DSN } from './src/config'
+import { FallbackErrorBoundary } from './src/components/commons'
+import { userStore, commonStore } from './src/store'
+import Navigations from './src/navigations'
 
 const App = () => {
   Sentry.init({
@@ -37,13 +36,11 @@ const App = () => {
   }, [])
 
   return (
-    <Provider>
-      <ErrorBoundary FallbackComponent={FallbackErrorBoundary}>
-        <NavigationContainer>
-          <Navigations />
-        </NavigationContainer>
-      </ErrorBoundary>
-    </Provider>
+    <ErrorBoundary FallbackComponent={FallbackErrorBoundary}>
+      <NavigationContainer>
+        <Navigations />
+      </NavigationContainer>
+    </ErrorBoundary>
   )
 }
 

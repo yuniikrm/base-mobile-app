@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { styles as commonStyles, colors } from '@styles'
+import { styles as commonStyles, colors } from '../../../styles'
 
 const styles = StyleSheet.create({
   buttonStyle: {

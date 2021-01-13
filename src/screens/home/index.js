@@ -1,33 +1,28 @@
 import React, { useEffect } from 'react'
-import { Text, View, Image } from 'react-native'
-import { Button } from '@components/shared'
-import { userStore } from '@store'
+import { Text, View } from 'react-native'
 import { object } from 'prop-types'
-import { t } from '@i18n'
 import { formatRelative, subDays } from 'date-fns'
 import { id } from 'date-fns/locale'
-import { getDetailUser } from '@api/auth'
-import { atom, useAtom } from 'jotai'
+import { Button } from '../../components/commons'
+import { userStore } from '../../store'
+import { t } from '../../i18n'
+// import { getDetailUser } from '../../api/auth'
 
-const profileDataAtom = atom({})
-
-const ImgAvatar = () => {
-  const [profile] = useAtom(profileDataAtom)
-  return (
-    profile.data?.avatar
-      ? <Image source={{ uri: profile.data.avatar }} style={{ width: 100, height: 100 }} />
-      : null
-  )
-}
+// const ImgAvatar = () => {
+//   return (
+//     profile.data?.avatar
+//       ? <Image source={{ uri: profile.data.avatar }} style={{ width: 100, height: 100 }} />
+//       : null
+//   )
+// }
 
 const Home = ({ navigation }) => {
   const dataUser = userStore((state) => state.data.nama)
-  const [, setProfile] = useAtom(profileDataAtom)
 
   useEffect(() => {
-    getDetailUser(4).then((res) => {
-      setProfile(res.data)
-    })
+    // getDetailUser(4).then((res) => {
+    //   setProfile(res.data)
+    // })
   }, [])
 
   return (
@@ -43,7 +38,7 @@ const Home = ({ navigation }) => {
         {dataUser}
       </Text>
       <View>
-        <ImgAvatar />
+        {/* <ImgAvatar /> */}
       </View>
       <Button
         title="go to profile"
