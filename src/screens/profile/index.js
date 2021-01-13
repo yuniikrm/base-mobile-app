@@ -1,94 +1,13 @@
 import React from 'react'
 // import { object } from 'prop-types'
-import { useForm } from 'react-hook-form'
-import { Input, FormWrapper } from '../../components/forms'
-import { t } from '../../i18n'
+import Profile from '../../components/views/profile'
 
-const Profile = () => {
-  const { errors, control } = useForm()
+const ProfileScreen = () => (
+  <Profile />
+)
 
-  return (
-    <FormWrapper style={{ padding: 15 }}>
-      <>
-        <Input
-          name="username"
-          rules={{ required: true }}
-          control={control}
-          placeholder={t('login.username')}
-          error={errors.username}
-        />
-        <Input
-          name="password"
-          secureTextEntry
-          rules={{ required: true }}
-          control={control}
-          placeholder={t('login.password')}
-          error={errors.password}
-        />
-
-        <Input
-          name="name"
-          rules={{ required: true }}
-          control={control}
-          placeholder="name"
-          error={errors.name}
-        />
-
-        <Input
-          name="name"
-          rules={{ required: true }}
-          control={control}
-          placeholder="name"
-          error={errors.name}
-        />
-
-        <Input
-          name="name"
-          rules={{ required: true }}
-          control={control}
-          placeholder="name"
-          error={errors.name}
-        />
-
-        <Input
-          name="name"
-          rules={{ required: true }}
-          control={control}
-          placeholder="name"
-          error={errors.name}
-        />
-
-        <Input
-          name="name"
-          rules={{ required: true }}
-          control={control}
-          placeholder="name"
-          error={errors.name}
-        />
-
-        <Input
-          name="name"
-          rules={{ required: true }}
-          control={control}
-          placeholder="name"
-          error={errors.name}
-        />
-
-        <Input
-          name="name"
-          rules={{ required: true }}
-          control={control}
-          placeholder="name"
-          error={errors.name}
-        />
-      </>
-    </FormWrapper>
-
-  )
-}
-
-Profile.propTypes = {
+ProfileScreen.propTypes = {
   // navigation: object.isRequired
 }
 
-export default Profile
+export default ProfileScreen
