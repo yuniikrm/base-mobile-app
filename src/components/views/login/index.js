@@ -10,6 +10,7 @@ import { Button } from '../../commons'
 import { userStore, commonStore } from '../../../store'
 import { login } from '../../../api/auth'
 import { t, changeLanguage } from '../../../i18n'
+import { styles } from './styles'
 
 const Login = ({ navigation }) => {
   const [
@@ -41,7 +42,7 @@ const Login = ({ navigation }) => {
 
   return (
     <View style={{ padding: 10 }} key={language}>
-      <Text style={tailwind('text-blue-800 font-semibold')}>
+      <Text style={styles.titleStyle}>
         Hello...
       </Text>
       <View style={{ flexDirection: 'row' }}>
@@ -66,7 +67,7 @@ const Login = ({ navigation }) => {
         error={errors.password}
         defaultValue="cityslicka"
       />
-      <Button title={t('button.login')} onPress={handleSubmit(doLogin)} />
+      <Button title={t('button.login')} style={styles.buttonStyle} onPress={handleSubmit(doLogin)} />
     </View>
   )
 }

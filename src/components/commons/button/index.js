@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Button as ButtonNative } from 'react-native-elements'
 import { TouchableWithoutFeedback, Text, View } from 'react-native'
-import { styles, commonStyles } from './styles'
+import { styles } from './styles'
 
 const Button = ({
   title, onPress, disabled, style, secondary
@@ -44,7 +44,7 @@ Button.defaultProps = {
   title: 'Submit',
   disabled: false,
   secondary: false,
-  style: commonStyles.mt20
+  style: {}
 }
 
 export default Button

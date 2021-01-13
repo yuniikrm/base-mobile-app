@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Text, TouchableWithoutFeedback } from 'react-native'
-import { styles, commonStyles } from './styles'
+import { styles } from './styles'
 
 const TextLink = ({ onPress, title, style }) => (
   <TouchableWithoutFeedback onPress={onPress}>
-    <Text style={[commonStyles.textGradientRegular, style]}>{title}</Text>
+    <Text style={[style]}>{title}</Text>
   </TouchableWithoutFeedback>
 )
 

@@ -1,11 +1,12 @@
 import { StyleSheet } from 'react-native'
-import { styles as commonStyles, colors } from '../../../styles'
+import { buttonPrimary, colors } from '../../../styles'
 
 const styles = StyleSheet.create({
   buttonStyle: {
     padding: 14,
     height: 48,
-    borderRadius: 8
+    borderRadius: 8,
+    ...buttonPrimary
   },
   titleStyle: {
     fontSize: 16,
@@ -37,5 +38,5 @@ const styles = StyleSheet.create({
 
 export {
   styles,
-  commonStyles
+  colors
 }
