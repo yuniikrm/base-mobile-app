@@ -1,23 +1,23 @@
 import { StyleSheet } from 'react-native'
-import { colors, styles as commonStyles } from '../../../styles'
+import { colors } from '../../../styles'
 
 const styles = StyleSheet.create({
   inputContainerStyle: {
     height: 45,
+    borderColor: colors.lavenderGrey,
     backgroundColor: colors.white,
     borderWidth: 1,
-    borderColor: colors.lavenderGrey,
     borderRadius: 4,
-    padding: 10,
+    paddingHorizontal: 10,
     marginLeft: -10,
     marginRight: -10,
     marginBottom: -10
   },
   inputContainerStyleError: {
     height: 45,
-    backgroundColor: '#FFEBE6',
+    borderColor: colors.red,
+    backgroundColor: colors.pink,
     borderWidth: 1,
-    borderColor: '#DE350B',
     borderRadius: 4,
     padding: 10,
     marginLeft: -10,
@@ -51,6 +51,5 @@ const styles = StyleSheet.create({
 })
 
 export {
-  styles,
-  commonStyles
+  styles
 }

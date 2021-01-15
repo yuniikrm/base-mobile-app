@@ -11,7 +11,7 @@ const userStore = create(persist(
   }),
   {
     name: 'user-data',
-    storage: AsyncStorage
+    getStorage: () => AsyncStorage
   }
 ))
 

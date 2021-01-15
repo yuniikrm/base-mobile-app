@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 import { object } from 'prop-types'
 import shallow from 'zustand/shallow'
 import { TouchableOpacity } from 'react-native-gesture-handler'
-import tailwind from 'tailwind-rn'
+import { useMutation } from 'react-query'
 import { Input } from '../../forms'
 import { Button } from '../../commons'
 import { userStore, commonStore } from '../../../store'
@@ -13,11 +13,24 @@ import { t, changeLanguage } from '../../../i18n'
 import { styles } from './styles'
 
 const Login = ({ navigation }) => {
-  const [
-    setData, language, setLanguage
-  ] = userStore((state) => [state.setData, state.language, state.setLanguage], shallow)
+  const [setData, language, setLanguage
+  ] = userStore((state) => [
+    state.setData,
+    state.language,
+    state.setLanguage], shallow)
   const { setState } = commonStore
   const { handleSubmit, errors, control } = useForm()
+
+  const useLogin = useMutation((body) => login(body), {
+    onSuccess: (response, variables) => {
+      const { token } = response.data
+      setState({ token })
+      setData({
+        token,
+        ...variables
+      })
+    }
+  })
 
   const doChangeLanguage = (param) => {
     setLanguage(param)
@@ -29,27 +42,20 @@ const Login = ({ navigation }) => {
       email: val.username,
       password: val.password
     }
-    login(req).then((response) => {
-      setData({
-        nama: val.username,
-        token: response.data.token,
-        email: 'email@yopmail.com'
-      })
-      setState({ token: response.data.token })
-      navigation.navigate('Home')
-    }).catch((e) => console.log('error', e))
+    useLogin.mutate(req)
   }
 
   return (
-    <View style={{ padding: 10 }} key={language}>
-      <Text style={styles.titleStyle}>
-        Hello...
-      </Text>
-      <View style={{ flexDirection: 'row' }}>
-        <TouchableOpacity onPress={() => doChangeLanguage('id')}><Text style={{ marginRight: 20 }}>Indonesia </Text></TouchableOpacity>
-        <TouchableOpacity onPress={() => doChangeLanguage('en')}><Text>English </Text></TouchableOpacity>
+    <View style={styles.container} key={language}>
+      <View style={styles.headerContainer}>
+        <Text style={styles.headerText}>
+          Welcome !
+        </Text>
+        <View style={styles.headerRow}>
+          <TouchableOpacity onPress={() => doChangeLanguage('id')}><Text>Indonesia </Text></TouchableOpacity>
+          <TouchableOpacity onPress={() => doChangeLanguage('en')}><Text>English </Text></TouchableOpacity>
+        </View>
       </View>
-      <Text>Login</Text>
       <Input
         name="username"
         rules={{ required: true }}
@@ -67,7 +73,12 @@ const Login = ({ navigation }) => {
         error={errors.password}
         defaultValue="cityslicka"
       />
-      <Button title={t('button.login')} style={styles.buttonStyle} onPress={handleSubmit(doLogin)} />
+      <Button
+        title={t('button.login')}
+        style={styles.buttonStyle}
+        loading={useLogin.isLoading}
+        onPress={handleSubmit(doLogin)}
+      />
     </View>
   )
 }

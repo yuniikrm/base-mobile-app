@@ -6,27 +6,31 @@ import Profile from '../screens/profile'
 import { commonStore } from '../store'
 
 const Navigations = () => {
-  const store = commonStore
-  const { token } = store.getState()
+  const { getState } = commonStore
+  const { token } = getState()
   const Stack = createStackNavigator()
+
   return (
     <Stack.Navigator>
       {
-        !token && (
+        !token ? (
           <Stack.Screen
             name="Login"
             component={Login}
           />
+        ) : (
+          <>
+            <Stack.Screen
+              name="Home"
+              component={Home}
+            />
+            <Stack.Screen
+              name="Profile"
+              component={Profile}
+            />
+          </>
         )
       }
-      <Stack.Screen
-        name="Home"
-        component={Home}
-      />
-      <Stack.Screen
-        name="Profile"
-        component={Profile}
-      />
     </Stack.Navigator>
   )
 }

@@ -3,9 +3,11 @@ import { Text, View } from 'react-native'
 import { object } from 'prop-types'
 import { formatRelative, subDays } from 'date-fns'
 import { id } from 'date-fns/locale'
+import shallow from 'zustand/shallow'
 import { Button } from '../../commons'
-import { userStore } from '../../../store'
+import { userStore, commonStore } from '../../../store'
 import { t } from '../../../i18n'
+import { styles } from './styles'
 // import { getDetailUser } from '../../api/auth'
 
 // const ImgAvatar = () => {
@@ -17,26 +19,30 @@ import { t } from '../../../i18n'
 // }
 
 const Home = ({ navigation }) => {
-  const dataUser = userStore((state) => state.data.nama)
+  const [dataUser, setDataUser] = userStore((state) => [state.data, state.setData], shallow)
+  const { setState } = commonStore
 
-  useEffect(() => {
-    // getDetailUser(4).then((res) => {
-    //   setProfile(res.data)
-    // })
-  }, [])
+  // useEffect(() => {
+  //   // getDetailUser(4).then((res) => {
+  //   //   setProfile(res.data)
+  //   // })
+  // }, [])
 
   return (
-    <View>
-      <Text>
-        Last online :
-        {' '}
-        {formatRelative(subDays(new Date(), 3), new Date(), { locale: id })}
-      </Text>
-      <Text>
-        {t('home.welcome')}
-        {' '}
-        {dataUser}
-      </Text>
+    <View style={styles.container}>
+      <View style={styles.headerContainer}>
+        <Text style={styles.headerText}>
+          {t('home.welcome')}
+          {' '}
+          {dataUser.email}
+        </Text>
+        <Text>
+          Last online :
+          {' '}
+          {formatRelative(subDays(new Date(), 3), new Date(), { locale: id })}
+        </Text>
+      </View>
+
       <View>
         {/* <ImgAvatar /> */}
       </View>
@@ -45,6 +51,7 @@ const Home = ({ navigation }) => {
         onPress={() => {
           navigation.navigate('Profile')
         }}
+        style={styles.buttonStyle}
       />
 
       <Button
@@ -52,6 +59,16 @@ const Home = ({ navigation }) => {
         onPress={() => {
           throw new Error('testing ErrorBoundary')
         }}
+        style={styles.buttonStyle}
+      />
+
+      <Button
+        title="Logout"
+        onPress={() => {
+          setDataUser({})
+          setState({ token: null })
+        }}
+        style={styles.buttonStyle}
       />
     </View>
   )
