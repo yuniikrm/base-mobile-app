@@ -5,7 +5,7 @@ import { TouchableWithoutFeedback, Text, View } from 'react-native'
 import { styles } from './styles'
 
 const Button = ({
-  title, onPress, disabled, style, secondary
+  title, onPress, disabled, style, secondary, loading
 }) => (
   <>
     {secondary ? (
@@ -16,6 +16,7 @@ const Button = ({
           onPress={onPress}
           buttonStyle={[styles.buttonSecondaryStyle]}
           titleStyle={styles.titleStyle}
+          loading={loading}
         />
         <TouchableWithoutFeedback onPress={onPress}>
           <Text style={styles.titleSecondaryStyle}>{title}</Text>
@@ -28,6 +29,7 @@ const Button = ({
         onPress={onPress}
         buttonStyle={[styles.buttonStyle, style]}
         titleStyle={styles.titleStyle}
+        loading={loading}
       />
     )}
   </>
@@ -37,13 +39,15 @@ Button.propTypes = {
   onPress: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
   style: PropTypes.object,
-  secondary: PropTypes.bool
+  secondary: PropTypes.bool,
+  loading: PropTypes.bool
 }
 
 Button.defaultProps = {
   title: 'Submit',
   disabled: false,
   secondary: false,
+  loading: false,
   style: {}
 }
 

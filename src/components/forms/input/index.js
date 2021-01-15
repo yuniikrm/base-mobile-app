@@ -4,7 +4,7 @@ import { TouchableOpacity, Text, View } from 'react-native'
 import { Controller } from 'react-hook-form'
 import { Input as TextInput } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/dist/Feather'
-import { styles, commonStyles } from './styles'
+import { styles } from './styles'
 import TextLink from '../../commons/text-link'
 
 const RightIcon = ({ iconContent, onPress }) => {
@@ -60,7 +60,7 @@ const Input = ({
       control={control}
       render={({ onChange, onBlur, value }) => (
         <View style={styles.container}>
-          { label && (<Text style={[commonStyles.textDarkRegular, styles.label]}>{label}</Text>) }
+          { label && (<Text style={styles.label}>{label}</Text>) }
           <TextInput
             secureTextEntry={secureTextEntry}
             keyboardType={keyboardType}

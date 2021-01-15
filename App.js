@@ -11,6 +11,7 @@ import SplashScreen from 'react-native-splash-screen'
 import shallow from 'zustand/shallow'
 import * as Sentry from '@sentry/react-native'
 import ErrorBoundary from 'react-native-error-boundary'
+import { QueryClient, QueryClientProvider } from 'react-query'
 import { changeLanguage } from './src/i18n'
 import { SENTRY_DSN } from './src/config'
 import { FallbackErrorBoundary } from './src/components/commons'
@@ -23,6 +24,7 @@ const App = () => {
   })
   const [data, language] = userStore((state) => [state.data, state.language], shallow)
   const { setState } = commonStore
+  const queryClient = new QueryClient()
 
   changeLanguage(language)
   if (data.token) {
@@ -37,9 +39,11 @@ const App = () => {
 
   return (
     <ErrorBoundary FallbackComponent={FallbackErrorBoundary}>
-      <NavigationContainer>
-        <Navigations />
-      </NavigationContainer>
+      <QueryClientProvider client={queryClient}>
+        <NavigationContainer>
+          <Navigations />
+        </NavigationContainer>
+      </QueryClientProvider>
     </ErrorBoundary>
   )
 }

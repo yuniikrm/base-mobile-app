@@ -8,7 +8,7 @@ const commonStore = create(persist(
   }),
   {
     name: 'common-data',
-    storage: AsyncStorage
+    getStorage: () => AsyncStorage
   }
 ))
 
