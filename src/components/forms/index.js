@@ -1,7 +1,7 @@
-import FormWrapper from './form-wrapper'
-import Input from './input'
+import FormWrapper from './form-wrapper';
+import Input from './input';
 
 export {
   FormWrapper,
-  Input
-}
+  Input,
+};

@@ -1,15 +1,15 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
   textLink: {
     marginTop: 22,
-    alignSelf: 'center'
-  }
-})
+    alignSelf: 'center',
+  },
+});
 
 export {
-  styles
-}
+  styles,
+};

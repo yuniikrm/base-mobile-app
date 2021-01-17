@@ -5,37 +5,37 @@
  * @format
  * @flow strict-local
  */
-import React, { useEffect } from 'react'
-import { NavigationContainer } from '@react-navigation/native'
-import SplashScreen from 'react-native-splash-screen'
-import shallow from 'zustand/shallow'
-import * as Sentry from '@sentry/react-native'
-import ErrorBoundary from 'react-native-error-boundary'
-import { QueryClient, QueryClientProvider } from 'react-query'
-import { changeLanguage } from './src/i18n'
-import { SENTRY_DSN } from './src/config'
-import { FallbackErrorBoundary } from './src/components/commons'
-import { userStore, commonStore } from './src/store'
-import Navigations from './src/navigations'
+import React, { useEffect } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import SplashScreen from 'react-native-splash-screen';
+import shallow from 'zustand/shallow';
+import * as Sentry from '@sentry/react-native';
+import ErrorBoundary from 'react-native-error-boundary';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { changeLanguage } from './src/i18n';
+import { SENTRY_DSN } from './src/config';
+import { FallbackErrorBoundary } from './src/components/commons';
+import { userStore, commonStore } from './src/store';
+import Navigations from './src/navigations';
 
 const App = () => {
   Sentry.init({
-    dsn: SENTRY_DSN
-  })
-  const [data, language] = userStore((state) => [state.data, state.language], shallow)
-  const { setState } = commonStore
-  const queryClient = new QueryClient()
+    dsn: SENTRY_DSN,
+  });
+  const [data, language] = userStore((state) => [state.data, state.language], shallow);
+  const { setState } = commonStore;
+  const queryClient = new QueryClient();
 
-  changeLanguage(language)
+  changeLanguage(language);
   if (data.token) {
-    setState({ token: data.token })
+    setState({ token: data.token });
   }
 
   useEffect(() => {
     setTimeout(() => {
-      SplashScreen.hide()
-    }, 0)
-  }, [])
+      SplashScreen.hide();
+    }, 0);
+  }, []);
 
   return (
     <ErrorBoundary FallbackComponent={FallbackErrorBoundary}>
@@ -45,7 +45,7 @@ const App = () => {
         </NavigationContainer>
       </QueryClientProvider>
     </ErrorBoundary>
-  )
-}
+  );
+};
 
-export default App
+export default App;

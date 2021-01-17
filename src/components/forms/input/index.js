@@ -1,11 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { TouchableOpacity, Text, View } from 'react-native'
-import { Controller } from 'react-hook-form'
-import { Input as TextInput } from 'react-native-elements'
-import Icon from 'react-native-vector-icons/dist/Feather'
-import { styles } from './styles'
-import TextLink from '../../commons/text-link'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { TouchableOpacity, Text, View } from 'react-native';
+import { Controller } from 'react-hook-form';
+import { Input as TextInput } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/dist/Feather';
+import { styles } from './styles';
+import TextLink from '../../commons/text-link';
 
 const RightIcon = ({ iconContent, onPress }) => {
   if (iconContent) {
@@ -13,20 +13,20 @@ const RightIcon = ({ iconContent, onPress }) => {
       <TouchableOpacity disabled={!onPress} onPress={onPress}>
         {iconContent}
       </TouchableOpacity>
-    )
+    );
   }
-  return null
-}
+  return null;
+};
 
 RightIcon.propTypes = {
   iconContent: PropTypes.object,
-  onPress: PropTypes.func
-}
+  onPress: PropTypes.func,
+};
 
 RightIcon.defaultProps = {
   iconContent: null,
-  onPress: null
-}
+  onPress: null,
+};
 
 const Input = ({
   name,
@@ -46,14 +46,14 @@ const Input = ({
   maxLength,
   onEndEditing,
   titleErrorAction,
-  onErrorAction
+  onErrorAction,
 }) => {
   const getInputContainerStyle = () => {
     if (error) {
-      return [styles.inputContainerStyleError, inputContainerStyle]
+      return [styles.inputContainerStyleError, inputContainerStyle];
     }
-    return [styles.inputContainerStyle, inputContainerStyle]
-  }
+    return [styles.inputContainerStyle, inputContainerStyle];
+  };
 
   return (
     <Controller
@@ -95,8 +95,8 @@ const Input = ({
       rules={rules}
       defaultValue={defaultValue}
     />
-  )
-}
+  );
+};
 
 Input.propTypes = {
   name: PropTypes.string.isRequired,
@@ -116,8 +116,8 @@ Input.propTypes = {
   maxLength: PropTypes.number,
   onEndEditing: PropTypes.func,
   titleErrorAction: PropTypes.string,
-  onErrorAction: PropTypes.func
-}
+  onErrorAction: PropTypes.func,
+};
 
 Input.defaultProps = {
   keyboardType: 'default',
@@ -134,7 +134,7 @@ Input.defaultProps = {
   maxLength: 50,
   onEndEditing: () => {},
   titleErrorAction: null,
-  onErrorAction: () => {}
-}
+  onErrorAction: () => {},
+};
 
-export default Input
+export default Input;

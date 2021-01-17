@@ -1,11 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Button as ButtonNative } from 'react-native-elements'
-import { TouchableWithoutFeedback, Text, View } from 'react-native'
-import { styles } from './styles'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Button as ButtonNative } from 'react-native-elements';
+import { TouchableWithoutFeedback, Text, View } from 'react-native';
+import { styles } from './styles';
 
 const Button = ({
-  title, onPress, disabled, style, secondary, loading
+  title = 'Submit', onPress, disabled = false, style = {}, secondary = false, loading = false,
 }) => (
   <>
     {secondary ? (
@@ -33,22 +33,14 @@ const Button = ({
       />
     )}
   </>
-)
+);
 Button.propTypes = {
   title: PropTypes.string,
   onPress: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
   style: PropTypes.object,
   secondary: PropTypes.bool,
-  loading: PropTypes.bool
-}
+  loading: PropTypes.bool,
+};
 
-Button.defaultProps = {
-  title: 'Submit',
-  disabled: false,
-  secondary: false,
-  loading: false,
-  style: {}
-}
-
-export default Button
+export default Button;

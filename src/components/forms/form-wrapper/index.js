@@ -1,21 +1,21 @@
 /* eslint-disable no-unused-expressions */
-import React, { useEffect } from 'react'
-import PropTypes from 'prop-types'
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import {
-  ScrollView, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard, Platform, View, Dimensions
-} from 'react-native'
-import { useIsFocused } from '@react-navigation/native'
+  ScrollView, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard, Platform, View, Dimensions,
+} from 'react-native';
+import { useIsFocused } from '@react-navigation/native';
 
 const FormWrapper = ({
-  children, style, reset, defaultValues
+  children, style, reset, defaultValues,
 }) => {
-  const isFocusedScreen = useIsFocused()
+  const isFocusedScreen = useIsFocused();
 
   useEffect(() => {
     if (isFocusedScreen) {
-      reset && reset(defaultValues)
+      reset && reset(defaultValues);
     }
-  }, [isFocusedScreen])
+  }, [isFocusedScreen]);
 
   return (
     <ScrollView>
@@ -36,20 +36,20 @@ const FormWrapper = ({
         </KeyboardAvoidingView>
       </View>
     </ScrollView>
-  )
-}
+  );
+};
 
 FormWrapper.propTypes = {
   style: PropTypes.object,
   children: PropTypes.any.isRequired,
   reset: PropTypes.func,
-  defaultValues: PropTypes.object
-}
+  defaultValues: PropTypes.object,
+};
 
 FormWrapper.defaultProps = {
   style: {},
   reset: null,
-  defaultValues: {}
-}
+  defaultValues: {},
+};
 
-export default FormWrapper
+export default FormWrapper;

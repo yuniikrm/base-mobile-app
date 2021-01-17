@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native'
-import { colors } from '../../../styles'
+import { StyleSheet } from 'react-native';
+import { colors } from '../../../styles';
 
 const styles = StyleSheet.create({
   inputContainerStyle: {
@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     marginLeft: -10,
     marginRight: -10,
-    marginBottom: -10
+    marginBottom: -10,
   },
   inputContainerStyleError: {
     height: 45,
@@ -22,16 +22,16 @@ const styles = StyleSheet.create({
     padding: 10,
     marginLeft: -10,
     marginRight: -10,
-    marginBottom: -10
+    marginBottom: -10,
   },
   inputStyle: {
-    fontSize: 14
+    fontSize: 14,
   },
   label: {
-    marginBottom: 2
+    marginBottom: 2,
   },
   container: {
-    width: '100%'
+    width: '100%',
   },
   hr: {
     borderBottomWidth: 1,
@@ -39,17 +39,17 @@ const styles = StyleSheet.create({
     marginLeft: 2,
     marginRight: 2,
     marginTop: 20,
-    marginBottom: 25
+    marginBottom: 25,
   },
   textError: {
     marginLeft: -10,
     marginTop: 18,
     marginBottom: 16,
     fontSize: 12,
-    color: colors.red
-  }
-})
+    color: colors.red,
+  },
+});
 
 export {
-  styles
-}
+  styles,
+};

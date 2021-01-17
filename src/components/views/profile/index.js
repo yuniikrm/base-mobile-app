@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 // import { object } from 'prop-types'
-import { useForm } from 'react-hook-form'
-import { Input, FormWrapper } from '../../forms'
-import { t } from '../../../i18n'
+import { useForm } from 'react-hook-form';
+import { Input, FormWrapper } from '../../forms';
+import { t } from '../../../i18n';
 
 const Profile = () => {
-  const { errors, control } = useForm()
+  const { errors, control } = useForm();
 
   return (
     <FormWrapper style={{ padding: 15 }}>
@@ -84,11 +84,11 @@ const Profile = () => {
       </>
     </FormWrapper>
 
-  )
-}
+  );
+};
 
 Profile.propTypes = {
   // navigation: object.isRequired
-}
+};
 
-export default Profile
+export default Profile;

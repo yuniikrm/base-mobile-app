@@ -1,6 +1,6 @@
-import React from 'react'
-import { string, func } from 'prop-types'
-import { Text, View, Button } from 'react-native'
+import React from 'react';
+import { string, func } from 'prop-types';
+import { Text, View, Button } from 'react-native';
 
 const FallbackErrorBoundary = ({ error, resetError }) => (
   <View>
@@ -8,16 +8,16 @@ const FallbackErrorBoundary = ({ error, resetError }) => (
     <Text>{error.toString()}</Text>
     <Button onPress={resetError} title="Try again" />
   </View>
-)
+);
 
 FallbackErrorBoundary.propTypes = {
   error: string,
-  resetError: func
-}
+  resetError: func,
+};
 
 FallbackErrorBoundary.defaultProps = {
   error: '',
-  resetError: () => {}
-}
+  resetError: () => {},
+};
 
-export default FallbackErrorBoundary
+export default FallbackErrorBoundary;

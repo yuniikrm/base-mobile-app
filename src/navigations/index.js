@@ -1,14 +1,14 @@
-import React from 'react'
-import { createStackNavigator } from '@react-navigation/stack'
-import Login from '../screens/login'
-import Home from '../screens/home'
-import Profile from '../screens/profile'
-import { commonStore } from '../store'
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import Login from '../screens/login';
+import Home from '../screens/home';
+import Profile from '../screens/profile';
+import { commonStore } from '../store';
 
 const Navigations = () => {
-  const { getState } = commonStore
-  const { token } = getState()
-  const Stack = createStackNavigator()
+  const { getState } = commonStore;
+  const { token } = getState();
+  const Stack = createStackNavigator();
 
   return (
     <Stack.Navigator>
@@ -32,7 +32,7 @@ const Navigations = () => {
         )
       }
     </Stack.Navigator>
-  )
-}
+  );
+};
 
-export default Navigations
+export default Navigations;

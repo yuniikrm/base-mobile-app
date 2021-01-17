@@ -1,9 +1,9 @@
-import { postApi, getApi } from './_base'
+import { postApi, getApi } from './_base';
 
 export function login(req) {
-  return postApi('/login', req)
+  return postApi('/login', req);
 }
 
 export function getDetailUser(req) {
-  return getApi(`/users/${req}`)
+  return getApi(`/users/${req}`);
 }

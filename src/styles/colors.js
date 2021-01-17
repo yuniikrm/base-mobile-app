@@ -17,7 +17,7 @@ const colors = {
   darkPurple: '#5701A9',
   pink: '#FFEBE6',
   red: '#B92500',
-  orange: '#FF8B00'
-}
+  orange: '#FF8B00',
+};
 
-export default colors
+export default colors;
